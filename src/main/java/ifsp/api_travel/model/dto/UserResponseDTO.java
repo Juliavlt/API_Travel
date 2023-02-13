@@ -20,6 +20,8 @@ public class UserResponseDTO implements Serializable {
 
     private String username;
 
+    private String name;
+
     private String profileType;
 
     private String error;
