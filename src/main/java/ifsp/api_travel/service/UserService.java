@@ -7,19 +7,12 @@ import ifsp.api_travel.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
+
+import static ifsp.api_travel.model.Constants.*;
 
 @Service
 public class UserService {
-
-    public static final String CPF = "CPF";
-    public static final String CNPJ = "CNPJ";
-    public static final int SIZE_CPF = 11;
 
     @Autowired
     private UserRepository repository;
