@@ -64,9 +64,9 @@ public class UserService {
         return UserResponseDTO.builder().error("Usuário não existe.").build();
     }
 
-    public UserResponseDTO authenticate(String username, String password) {
-        User user = repository.findByUsername(username);
-        if (!ObjectUtils.isEmpty(user) && user.getPassword().equals(password)) {
+    public UserResponseDTO authenticate(UserRequestDTO request) {
+        User user = repository.findByUsername(request.getUsername());
+        if (!ObjectUtils.isEmpty(user) && user.getPassword().equals(request.getPassword())) {
             return UserResponseDTO.builder()
                     .username(user.getUsername())
                     .name(user.getName())
@@ -74,7 +74,7 @@ public class UserService {
                     .build();
         }
         if (!ObjectUtils.isEmpty(user) &&
-                    !user.getPassword().equals(password)) {
+                    !user.getPassword().equals(request.getPassword())) {
                 return UserResponseDTO.builder().error("Dados incorretos!").build();
             }
 

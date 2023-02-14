@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="65b74ede-0896-4967-a7b4-45516c0e3770" name="API_Travel Mapping">
+      <data-sources db="78fa0020-ae63-4612-af84-8ac5877a4db7" ddl="afd01845-8dd7-41df-aa1b-566fbd9dc3c7" />
+      <scope>
+        <node kind="database" negative="1">
+          <node kind="schema" negative="1" />
+        </node>
+      </scope>
+    </mapping>
+  </component>
+  <component name="SqlDataSourceStorage">
+    <option name="dataSources">
+      <list>
+        <State>
+          <option name="id" value="afd01845-8dd7-41df-aa1b-566fbd9dc3c7" />
+          <option name="name" value="API_Travel (DDL)" />
+          <option name="languageId" value="H2" />
+          <option name="urls">
+            <array>
+              <option value="file://$PROJECT_DIR$/src/main/java/ifsp/api_travel/model/dto" />
+            </array>
+          </option>
+          <option name="scriptOptions">
+            <map>
+              <entry key="QualifyWithSchema" value="ALWAYS" />
+            </map>
+          </option>
+        </State>
+      </list>
+    </option>
+  </component>
+</project>

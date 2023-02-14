@@ -20,11 +20,9 @@ public class UserController {
 
     @GetMapping("/user")
     @Transactional
-    public ResponseEntity<?> getUser(
-            @RequestParam(value = "username", required = true) String username,
-            @RequestParam(value = "password", required = true) String password) {
+    public ResponseEntity<?> getUser(@RequestBody UserRequestDTO userRequestDTO) {
 
-        UserResponseDTO response = userService.authenticate(username,password);
+        UserResponseDTO response = userService.authenticate(userRequestDTO);
         if (response.getError()==null){
             return ResponseEntity.ok(response);
         }
@@ -46,8 +44,8 @@ public class UserController {
 
     @DeleteMapping("/user")
     @Transactional
-    public ResponseEntity deleteUser(@RequestParam String username) {
-        UserResponseDTO userResponseDTO = userService.delete(username);
+    public ResponseEntity deleteUser(@RequestBody UserRequestDTO request) {
+        UserResponseDTO userResponseDTO = userService.delete(request.getUsername());
         if(userResponseDTO.getError()==null) {
             return ResponseEntity.ok().build();
         }
