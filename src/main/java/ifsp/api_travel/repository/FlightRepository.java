@@ -9,6 +9,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface FlightRepository extends JpaRepository<Flight, Long> {
 
+    Flight findByName(String flight);
+
+
     //  /** Exemplo de busca pelo campo username. */
     //  User findByUsername(String username);
     //

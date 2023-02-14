@@ -3,23 +3,19 @@ package ifsp.api_travel.model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Map;
 
-@Entity
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIdentityInfo(scope = Flight.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-@Table(name = "flight")
+@Table(name = "Flight")
+@Entity
 public class Flight {
 
     @Id
@@ -29,6 +25,12 @@ public class Flight {
     /*@OneToMany(targetEntity = String.class, cascade={CascadeType.PERSIST, CascadeType.MERGE,CascadeType.REFRESH}, orphanRemoval=true)
     @JoinColumn(name = "images_fk", referencedColumnName = "id")
     private List<String> images;*/
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "airline")
+    private String airline;
 
     @CreatedDate
     @Column(name = "departureDate")
@@ -53,11 +55,9 @@ public class Flight {
     @Column(name = "classType")
     private String classType;
 
-    @Column(name = "airline")
-    private String airline;
 
-    /*@ManyToOne
-    @JoinColumn(name = "id")
-    private Map<String, String> additional;*/
+/*    @OneToMany(targetEntity = AdditionalInfo.class, cascade={CascadeType.PERSIST, CascadeType.MERGE,CascadeType.REFRESH}, orphanRemoval=true)
+    @JoinColumn(name = "additionalInfo_fk", referencedColumnName = "id")
+    private List<AdditionalInfo> additional;*/
 
 }
